@@ -2,11 +2,20 @@
 
 namespace App\Controllers;
 
-class DefaultController
+class DefaultController extends AbstractController
 {
     public function home()
     {
-        return "<h1>Ma page d'accueil</h1>";
+        $articles = [
+            ['id' => 2, 'title' => 'Mon Titre'],
+            ['id' => 4, 'title' => 'Mon Titre 2'],
+        ];
+        return $this->render(
+            'articles/list.html.twig',
+            [
+                'articles' => $articles,
+            ]
+        );
     }
 
     public function listArticles()

@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    Liste des articles
+    <ul>
+        {% for article in articles %}
+            <li>Mon article a pour titre {{ article.title }} avec l'identifiant {{ article.id }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
