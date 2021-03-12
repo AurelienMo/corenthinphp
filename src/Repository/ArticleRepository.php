@@ -26,8 +26,8 @@ class ArticleRepository extends AbstractRepository
         return $statement->fetchAll();
     }
 
-    public function createArticle($datas)
+    public function createArticle(Article $article)
     {
-        $query = "INSERT INTO "
+        $query = "INSERT INTO";
     }
 }

@@ -1,10 +1,18 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    Liste des articles
-    <ul>
-        {% for article in articles %}
-            <li>Mon article a pour titre {{ article.title }} avec l'identifiant {{ article.id }}</li>
-        {% endfor %}
-    </ul>
+    {% if errors|length > 0 %}
+        <div>
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+    <form method="post">
+        <label for="title">Titre de l'article</label>
+        <input type="text" name="title" value="{{ article.title }}"/>
+        <button type="submit">Envoyer</button>
+    </form>
 {% endblock %}

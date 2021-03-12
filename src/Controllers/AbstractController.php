@@ -27,4 +27,9 @@ abstract class AbstractController
     {
         return $this->twig->render($template, $options);
     }
+
+    protected function redirect(string $url)
+    {
+        header('Location: '.$url);
+    }
 }

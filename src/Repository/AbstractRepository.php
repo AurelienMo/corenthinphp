@@ -12,7 +12,7 @@ abstract class AbstractRepository
         if (is_null($this->db)) {
             $config = require_once __DIR__.'/../../config/db.local.php';
             $this->db = new \PDO(
-                'mysql:host=localhost:dbname='.$config['dbname'],
+                'mysql:host=172.19.0.2:dbname='.$config['dbname'],
                 $config['user'],
                 $config['password']
             );

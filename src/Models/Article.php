@@ -5,48 +5,53 @@ namespace App\Models;
 class Article
 {
     /**
-     * @var int
+     * @var int|null
      */
-    protected int $id;
+    protected $id;
 
     /**
-     * @var string
+     * @var string|null
      */
-    protected string $title;
+    protected $title;
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
 
     public function __construct($datas = [])
     {
-
+        foreach ($datas as $key => $value) {
+            $method = 'set'.ucfirst($key);
+            if (method_exists($this, $method)) {
+                $this->$method($value);
+            }
+        }
     }
 
     /**
-     * @param int $id
+     * @param int|null
      */
-    public function setId(int $id): void
+    public function setId(?int $id): void
     {
         $this->id = $id;
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getTitle(): string
+    public function getTitle(): ?string
     {
         return $this->title;
     }
 
     /**
-     * @param string $title
+     * @param string|null $title
      */
-    public function setTitle(string $title): void
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }

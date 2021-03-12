@@ -3,6 +3,9 @@
 require_once __DIR__.'/../vendor/autoload.php';
 
 use App\Controllers\DefaultController;
+use App\Core\Request;
+
+$request = Request::createFromGlobals();
 
 $page = '';
 
@@ -16,10 +19,10 @@ $controller = new DefaultController();
 switch ($page) {
     case 'home':
         //TODO Appeler controller retournant le contenu de la homepage
-        echo $controller->home();
+        echo $controller->home($request);
         break;
     case 'list':
         //TODO Appeler controller retournant le contenu de la liste des éléments
-        echo $controller->listArticles();
+        echo $controller->listArticles($request);
         break;
 }
