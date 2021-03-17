@@ -40,4 +40,9 @@ class Request
     {
         return $this->post;
     }
+
+    public function getGet(string $key = null)
+    {
+        return $key ? $this->get[$key] : $this->get;
+    }
 }

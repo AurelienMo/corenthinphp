@@ -1,5 +1,9 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheet %}
+    <link rel="stylesheet" href="css/tata.css"/>
+{% endblock %}
+
 {% block body %}
     {% if errors|length > 0 %}
         <div>
@@ -12,7 +16,19 @@
     {% endif %}
     <form method="post">
         <label for="title">Titre de l'article</label>
-        <input type="text" name="title" value="{{ article.title }}"/>
+        <input id="password" type="password" placeholder="Mot de passe" />
+        <button id="showpassword" type="button">Voir</button>
         <button type="submit">Envoyer</button>
     </form>
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        document.getElementById('showpassword').addEventListener('click', (e) => {
+            e.preventDefault();
+            const input = document.getElementById('password');
+            input.type = input.type === 'password' ? 'text' : 'password';
+            e.target.innerText = e.target.innerText === 'Voir' ? 'Cacher' : 'Voir';
+        })
+    </script>
 {% endblock %}

@@ -47,4 +47,9 @@ class DefaultController extends AbstractController
     {
         return "<h1>Ma liste d'articles</h1>";
     }
+
+    public function notFound()
+    {
+        return "<h1>Page Not found</h1>";
+    }
 }

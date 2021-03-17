@@ -9,20 +9,26 @@ $request = Request::createFromGlobals();
 
 $page = '';
 
-if (!array_key_exists('page', $_GET)) {
+if (!array_key_exists('page', $request->getGet())) {
     $page = 'home';
 } else {
-    $page = $_GET['page'];
+    $page = $request->getGet('page');
 }
 $controller = new DefaultController();
+$response = null;
 
 switch ($page) {
     case 'home':
         //TODO Appeler controller retournant le contenu de la homepage
-        echo $controller->home($request);
+        $response = $controller->home($request);
         break;
     case 'list':
         //TODO Appeler controller retournant le contenu de la liste des éléments
-        echo $controller->listArticles($request);
+        $response = $controller->listArticles($request);
+        break;
+    default:
+        $response = $controller->notFound();
         break;
 }
+
+echo $response;

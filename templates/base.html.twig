@@ -3,10 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="css/toto.css" />
     {% block stylesheet %}{% endblock %}
 </head>
 <body>
+<header>
+    <nav>
+        <ul>
+            <li>Lien 1</li>
+            <li>Lien 2</li>
+        </ul>
+    </nav>
+</header>
 {% block body %}{% endblock %}
+<footer>
+    <span>Amazing footer</span>
+</footer>
 {% block javascripts %}{% endblock %}
 </body>
 </html>
