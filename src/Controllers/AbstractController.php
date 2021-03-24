@@ -21,6 +21,8 @@ abstract class AbstractController
         if (!$this->twig instanceof Environment) {
             $this->twig = new Environment($loader);
         }
+
+        $this->twig->addGlobal('app', $_SESSION);
     }
 
     protected function render(string $template, array $options = [])

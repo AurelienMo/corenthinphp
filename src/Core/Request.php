@@ -45,4 +45,20 @@ class Request
     {
         return $key ? $this->get[$key] : $this->get;
     }
+
+    /**
+     * @return array|null
+     */
+    public function getSession(): ?array
+    {
+        return $this->session;
+    }
+
+    public function addEntryToSession($key, $value)
+    {
+        if (!array_key_exists($key, $this->session)) {
+            $this->session[$key] = $value;
+        }
+        var_dump($this->session);
+    }
 }

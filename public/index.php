@@ -7,6 +7,8 @@ use App\Core\Request;
 
 $request = Request::createFromGlobals();
 
+session_start();
+
 $page = '';
 
 if (!array_key_exists('page', $request->getGet())) {
